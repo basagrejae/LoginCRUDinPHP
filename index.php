@@ -1,3 +1,9 @@
+<?php
+require_once 'includes/config_session.inc.php';
+require_once 'includes/signup_view.inc.php'; 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +34,10 @@
         <input type="text" name="email" placeholder="E-Mail">
         <button>Signup</button>
     </form>
+
+    <?php
+    check_signup_errors();
+    ?>
 
 </body>
 

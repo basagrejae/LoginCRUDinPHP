@@ -28,6 +28,13 @@ if ($_SERVER["REQUEST_METHOD" === "POST"]) {
             $errors["email_used"] = "Email already registered!";
         }
 
+        require_once 'config_session.inc.php'; // run a session
+
+        if ($errors) {
+            $_SESSION["error_signup"] = $errors; // assign session variable to value stored inside session
+            header("Location: ../index.php");
+        }
+
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
     }
