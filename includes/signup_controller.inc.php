@@ -21,11 +21,20 @@ function is_email_invalid(string $email)
     }
 }
 
-// function is_username_taken(string $username) 
-// { 
-//     if () { 
-//         return true; // return true
-//     } else {
-//         return false; // or else return false
-//     }
-// }
+function is_username_taken(object $pdo ,string $username) // function to check if username is already registered
+{ 
+    if (get_username($pdo,  $username)) { 
+        return true; // return true
+    } else {
+        return false; // or else return false
+    }
+}
+
+function is_email_registered(object $pdo ,string $username) // function to check if email is registered
+{ 
+    if (get_email($pdo,  $email)) { 
+        return true; // return true
+    } else {
+        return false; // or else return false
+    }
+}

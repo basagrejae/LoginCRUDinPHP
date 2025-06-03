@@ -13,15 +13,20 @@ if ($_SERVER["REQUEST_METHOD" === "POST"]) {
         require_once 'signup_controller.inc.php';
 
         // Error handlers
+        $errors = [];
+
         if (is_input_empty($username, $pwd, $email)) {
-            
+            $errors["empty_input"] = "Fill in all fields!";
         }
         if (is_email_invalid($email)) {
-            
+            $errors["invalid_email"] = "Invalid email used!";
         }
-        // if () {
-
-        // }
+        if (is_username_taken($pdo , $username)) {
+            $errors["username_taken"] = "Username already taken!";
+        }
+        if (is_email_registered($pdo , $username)) {
+            $errors["email_used"] = "Email already registered!";
+        }
 
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
