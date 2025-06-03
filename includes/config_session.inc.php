@@ -14,12 +14,15 @@ session_set_cookie_params([
 session_start(); 
 
 if (!isset($_SESSION["last_generation"])) { // isset function checks if session exists inside webpage
-    session_regenerate_id();
-    $_SESSION["last_generation"] = time();
+    regenerate_session_id(); // call function regenerate session
 } else {
     $interval = 60 * 30; // set time to 30 mins
     if (time() - $_SESSION["last_generation"] >= $interval) { // time minus last_generation greater than equal interval
-        session_regenerate_id(); // renew session ID
-        $_SESSION["last_generation"] = time();
+        regenerate_session_id(); // call function regenerate session
     }
+}
+
+function regenerate_session_id() { // function to renew session
+    session_regenerate_id(); // renew session ID
+    $_SESSION["last_regeneration"] = time();
 }
