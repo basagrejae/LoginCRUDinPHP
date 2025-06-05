@@ -1,6 +1,6 @@
 <?php
 
-if ($_SERVER["REQUEST_METHOD" === "POST"]) {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $username = $_POST["username"];
     $pwd = $_POST["pwd"];
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD" === "POST"]) {
         if (is_username_taken($pdo , $username)) {
             $errors["username_taken"] = "Username already taken!";
         }
-        if (is_email_registered($pdo , $username)) {
+        if (is_email_registered($pdo , $email)) {
             $errors["email_used"] = "Email already registered!";
         }
 
@@ -37,8 +37,7 @@ if ($_SERVER["REQUEST_METHOD" === "POST"]) {
                 "username" => $username,
                 "email" => $email
             ];
-            $_SESSION["signup_data"] = $errors;
-
+            $_SESSION["signup_data"] = $signupData;
             header("Location: ../index.php");
             die();
         }

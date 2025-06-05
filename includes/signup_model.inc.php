@@ -9,7 +9,7 @@ function get_username(object $pdo, string $username)
     $stmt->bindParam(":username", $username); 
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCT_ASSOC); // get a data associative array
+    $result = $stmt->fetch(PDO::FETCH_ASSOC); // get a data associative array
     return $result;
 }
 
@@ -20,7 +20,7 @@ function get_email(object $pdo, string $email)
     $stmt->bindParam(":email", $email); 
     $stmt->execute();
 
-    $result = $stmt->fetch(PDO::FETCT_ASSOC); // get a data associative array
+    $result = $stmt->fetch(PDO::FETCH_ASSOC); // get a data associative array
     return $result;
 }
 
@@ -32,7 +32,7 @@ function set_user(object $pdo, string $pwd, string $username, string $email)
     $options = [
         'cost' => 12
     ];
-    $hashedPwd = password_hashed($pwd, PASSWORD_BCRYPT, $options);
+    $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
 
     $stmt->bindParam(":username", $username); 
     $stmt->bindParam(":pwd", $hashedPwd); 

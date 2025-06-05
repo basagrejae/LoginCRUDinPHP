@@ -23,8 +23,8 @@ function signup_inputs()
         echo '<input type="text" name="email" placeholder="E-Mail" value="' . $_SESSION["signup_data"]
         ["email"] . '">';
     } else {
-        echo '<input type="text" name="username" 
-        placeholder="Username">';
+        echo '<input type="text" name="email" 
+        placeholder="Email">';
     }
 }
 

@@ -30,7 +30,7 @@ function is_username_taken(object $pdo ,string $username) // function to check i
     }
 }
 
-function is_email_registered(object $pdo ,string $username) // function to check if email is registered
+function is_email_registered(object $pdo ,string $email) // function to check if email is registered
 { 
     if (get_email($pdo,  $email)) { 
         return true; // return true

@@ -17,7 +17,7 @@ require_once 'includes/signup_view.inc.php';
 </head>
 
 <body>
-    
+<div class="signup-container">
     <h3>Login</h3>
 
     <form action="includes/login.inc.php" method="POST">
@@ -38,6 +38,7 @@ require_once 'includes/signup_view.inc.php';
     check_signup_errors();
     ?>
 
+</div>
 </body>
 
 </html>

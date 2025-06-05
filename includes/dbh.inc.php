@@ -7,8 +7,8 @@ $dbpassword = '';
 
 try {
     //code...
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname", dbusername,
-    dbpassword); // connection string to SQL
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $dbusername,
+    $dbpassword); // connection string to SQL
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // throw exception
