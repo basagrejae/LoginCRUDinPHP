@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         require_once 'config_session.inc.php'; // run a session
 
         if ($errors) {
-            $_SESSION["error_signup"] = $errors; // assign session variable to value stored inside session
+            $_SESSION["errors_signup"] = $errors; // assign session variable to value stored inside session
             
             $signupData = [
                 "username" => $username,
