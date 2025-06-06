@@ -42,6 +42,6 @@ function check_signup_errors()
         unset($_SESSION['errors_signup']);
     } else if (isset($_GET["signup"]) && $_GET["signup"] === "success") { // check if has a GET method inside URL
         echo '<br>';
-        echo '<p class="form-success">Signup success!</p>';
+        echo '<p class="form-success">Signup mo Sumakses!</p>';
     }
 }

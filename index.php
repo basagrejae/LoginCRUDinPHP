@@ -1,6 +1,7 @@
 <?php
 require_once 'includes/config_session.inc.php';
 require_once 'includes/signup_view.inc.php'; 
+require_once 'includes/login_view.inc.php'; 
 
 ?>
 
@@ -26,7 +27,11 @@ require_once 'includes/signup_view.inc.php';
         <button>Login</button>
     </form>
 
-    <h3>Signup</h3>
+    <?php 
+    check_login_errors();
+    ?>
+
+    <h3>Sign-up</h3>
     <form action="includes/signup.inc.php" method="POST">
         <?php
         signup_inputs();

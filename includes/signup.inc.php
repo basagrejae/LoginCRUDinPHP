@@ -22,10 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["invalid_email"] = "Invalid email used!";
         }
         if (is_username_taken($pdo , $username)) {
-            $errors["username_taken"] = "Username already taken!";
+            $errors["username_taken"] = "Yung Username mo nagamit na bobo! Gumamit ka ng iba!";
         }
         if (is_email_registered($pdo , $email)) {
-            $errors["email_used"] = "Email already registered!";
+            $errors["email_used"] = "Yung Email mo nagamit nadin bobo! Gumamit ka ng iba";
         }
 
         require_once 'config_session.inc.php'; // run a session
@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $pdo = null;
         $stmt = null;
 
+        die();
     } catch (PDOException $e) {
         die("Query Failed: " . $e->getMessage());
     }
