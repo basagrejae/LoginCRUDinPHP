@@ -22,10 +22,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["invalid_email"] = "Invalid email used!";
         }
         if (is_username_taken($pdo , $username)) {
-            $errors["username_taken"] = "Yung Username mo nagamit na bobo! Gumamit ka ng iba!";
+            $errors["username_taken"] = "Username is already used!";
         }
         if (is_email_registered($pdo , $email)) {
-            $errors["email_used"] = "Yung Email mo nagamit nadin bobo! Gumamit ka ng iba";
+            $errors["email_used"] = "Email is already used!";
         }
 
         require_once 'config_session.inc.php'; // run a session
