@@ -24,6 +24,7 @@ require_once 'includes/login_view.inc.php';
     <form action="includes/login.inc.php" method="POST">
         <input type="text" name="username" placeholder="Username">
         <input type="password" name="pwd" placeholder="Password">
+        <input type="checkbox" onclick="pwd.type = this.checked ? 'text' : 'password'">
         <button>Login</button>
     </form>
 
